@@ -1,18 +1,20 @@
 package config
 
 import (
-	_ "gorm.io/driver/mysql"
+	"log"
+
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
 var (
-	db gorm.DB
+	db *gorm.DB
 )
 
 func Connect() {
-	d, err := gorm.Open("mysql", "root:P@sSw0Rd!/simplerest?charset=utf8&parseTime=True&loc=local")
+	d, err := gorm.Open(mysql.Open("root:!10-sccrOC/simplerest?charset=utf8&parseTime=True&loc=local"), &gorm.Config{} )
 	if err != nil {
-		panic(err)
+		log.Fatal("failed to connect to database: ")
 	}
 	db = d
 }
