@@ -12,7 +12,7 @@ var (
 )
 
 func Connect() {
-	d, err := gorm.Open(mysql.Open("root:!10-sccrOC/simplerest?charset=utf8&parseTime=True&loc=local"), &gorm.Config{} )
+	d, err := gorm.Open(mysql.Open("root:!10-sccrOC@tcp(127.0.0.1:3306)/simplerest?charset=utf8mb4&parseTime=True&loc=local"), &gorm.Config{})
 	if err != nil {
 		log.Fatal("failed to connect to database: ")
 	}
